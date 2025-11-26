@@ -22,6 +22,9 @@
       if (nbr1 == 0 && opr == "/" || nbr2 == 0 && opr == "/") {
       return "Problem mathe"   
        }
+       if (nbr1 == "" || nbr2 == "" || opr == "") {
+        return "Veuiller remplire le champ de calcule"
+       }
       if (opr == "+") {
         let calcule = parseInt(nbr1) + parseInt(nbr2);
         return calcule;
