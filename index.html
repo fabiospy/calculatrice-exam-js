@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Resultat: <span id="result">0</span></h1>
+  <input type="number" id="input1" placeholder="10">
+  <input type="text" id="signemath" placeholder="*">
+  <input type="number" id="input2" placeholder="10">
+  <button id="calculer">calculer</button>
+  <script>
+    const $afichresult = document.querySelector("#result");
+    const $nombre1 = document.querySelector("#input1");
+    const $signe = document.querySelector("#signemath");
+    const $nombre2 = document.querySelector("#input2")
+    const $button =  document.querySelector("#calculer");
+
+    function ChoisirCalcule (nbr1, nbr2, opr) {
+      if (nbr1 == 0 && opr == "/" || nbr2 == 0 && opr == "/") {
+      return "Problem mathe"   
+       }
+      if (opr == "+") {
+        let calcule = parseInt(nbr1) + parseInt(nbr2);
+        return calcule;
+      }
+      if (opr == "*") {
+        let calcule = nbr1 * nbr2;
+        return calcule;
+      }
+      if (opr == "-") {
+       let calcule = nbr1 - nbr2;
+       return calcule;
+      }
+      if (opr == "/") {
+        let calcule = nbr1 / nbr2;
+        return calcule;
+      }
+      else {
+        return "Erreur"
+      }
+    }
+
+			$button.addEventListener("click", () => {
+				const operation = $signe.value;
+				const nombre1 = $nombre1.value;
+				const nombre2 = $nombre2.value;
+
+				const resultat = ChoisirCalcule(nombre1, nombre2, operation);
+        $afichresult.textContent = resultat;
+				console.log(resultat);
+			});
+  </script>
+</body>
+</html>
